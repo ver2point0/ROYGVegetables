@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">@color/primary</color>
-    <color name="colorPrimaryDark">@color/primary_dark</color>
-    <color name="colorAccent">@color/accent</color>
-</resources>
+    <color name="colorPrimary">#FF9800</color>
+    <color name="colorPrimaryDark">#F57C00</color>
+    <color name="colorPrimaryLight">#FFE0B2</color>
+    <color name="colorAccent">#4CAF50</color>
 
+    <color name="editorColorPrimary">#FFEB3B</color>
+    <color name="editorColorPrimaryDark">#FBC02D</color>
+
+    <color name="colorPrimaryText">#212121</color>
+    <color name="colorSecondaryText">#757575</color>
+
+    <color name="colorIcons">#212121</color>
+    <color name="colorDivider">#BDBDBD</color>
+
+</resources>

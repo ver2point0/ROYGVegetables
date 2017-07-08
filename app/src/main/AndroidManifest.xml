@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".activities.MainActivity">
+        <activity android:name=".ui.BasketActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -21,16 +21,16 @@
         </activity>
 
         <activity
-            android:name=".activities.VegetableDetailActivity"
+            android:name=".ui.EditorActivity"
             android:label="@string/add_new_vegetable"
-            android:parentActivityName=".activities.MainActivity">
+            android:parentActivityName=".ui.BasketActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.MainActivity" />
+                android:value=".ui.BasketActivity" />
         </activity>
     </application>
 </manifest>
