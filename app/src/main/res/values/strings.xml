@@ -9,8 +9,8 @@
     <string name="order_name_title">Name</string>
     <string name="order_name_hint">Acme produce</string>
 
-    <string name="quantity_title">Quantity</string>
-    <string name="price_title">Price</string>
+    <string name="vegetable_quantity_title">Quantity</string>
+    <string name="vegetable_price_title">Price</string>
     <string name="vegetable_name_title">Vegetable Name</string>
     <string name="order_currency_details">$</string>
     <string name="action_save">Save vegetable</string>
@@ -36,4 +36,10 @@
     <string name="unsaved_changes_dialog_msg">There are unsaved changes with this vegetable input. Do you want to continue?</string>
     <string name="discard">Discard</string>
     <string name="keep_editing">Keep editing</string>
+    <string name="vegetable_list_item_name">Vegetable name</string>
+    <string name="vegetable_list_item_price">$10</string>
+    <string name="vegetable_list_item_quantity">100</string>
+    <string name="minus_one">-1</string>
+    <string name="add_one">+1</string>
+    <string name="produce_image_content_description">produce image</string>
 </resources>

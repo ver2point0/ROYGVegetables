@@ -2,5 +2,12 @@
     <dimen name="activity_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="veg_title_margin_top">8dp</dimen>
+    <dimen name="vegetable_name_text_size">24sp</dimen>
+    <dimen name="vegetable_sale_height">30dp</dimen>
+    <dimen name="image_view_height">100dp</dimen>
+    <dimen name="zero_dp">0dp</dimen>
+    <dimen name="vegetable_price_text_size">16sp</dimen>
+    <dimen name="vegetable_quantity_text_size">36sp</dimen>
+    <dimen name="veggie_image_view_height">200dp</dimen>
 </resources>
 
