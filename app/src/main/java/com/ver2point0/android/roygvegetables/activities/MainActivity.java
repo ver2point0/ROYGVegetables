@@ -1,7 +1,9 @@
-package com.ver2point0.android.roygvegetables;
+package com.ver2point0.android.roygvegetables.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.ver2point0.android.roygvegetables.R;
 
 public class MainActivity extends AppCompatActivity {
 
