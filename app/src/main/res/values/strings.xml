@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ROYG Vegetables</string>
+    <string name="add_new_vegetable">Add new vegetable</string>
 </resources>
