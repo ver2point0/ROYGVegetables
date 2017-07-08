@@ -1,4 +1,39 @@
 <resources>
     <string name="app_name">ROYG Vegetables</string>
     <string name="add_new_vegetable">Add new vegetable</string>
+    <string name="sale_vegetable_button">Sale</string>
+
+    <string name="order_email_title">E-mail Address</string>
+    <string name="order_hint_email_address">test@example.com</string>
+
+    <string name="order_name_title">Name</string>
+    <string name="order_name_hint">Acme produce</string>
+
+    <string name="quantity_title">Quantity</string>
+    <string name="price_title">Price</string>
+    <string name="vegetable_name_title">Vegetable Name</string>
+    <string name="order_currency_details">$</string>
+    <string name="action_save">Save vegetable</string>
+
+    <string name="editor_activity_title_new_item">Add new vegetable</string>
+    <string name="editor_activity_title_edit_item">Edit vegetable</string>
+
+    <string name="menu_order_vegetable">Order more vegetables</string>
+    <string name="menu_delete_vegetable">Delete vegetable</string>
+    <string name="menu_delete_all_vegetables">Delete all vegetables</string>
+
+    <string name="email">E-mail</string>
+    <string name="order_vegetable_message">Orders for vegetables are done by e-mail</string>
+    <string name="delete_vegetable_message">Delete this vegetable?</string>
+
+    <string name="delete">Accept</string>
+    <string name="cancel">Cancel</string>
+    <string name="empty_vegetable_list_hint">Your basket is empty…add some vegetables</string>
+    <string name="action_add_vegetable_data">Add some vegetables</string>
+    <string name="select_image">Select an image</string>
+    <string name="image">Image</string>
+
+    <string name="unsaved_changes_dialog_msg">There are unsaved changes with this vegetable input. Do you want to continue?</string>
+    <string name="discard">Discard</string>
+    <string name="keep_editing">Keep editing</string>
 </resources>
