@@ -2,8 +2,10 @@
 <manifest package="com.ver2point0.android.roygvegetables"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-feature android:name="android.hardware.camera2"
+        android:required="false"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="25"/>
 
     <application
         android:allowBackup="true"
@@ -12,25 +14,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".ui.BasketActivity">
+        <activity
+            android:name=".ui.BasketActivity"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ui.EditorActivity"
-            android:label="@string/add_new_vegetable"
+            android:theme="@style/EditorTheme"
             android:parentActivityName=".ui.BasketActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-            </intent-filter>
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.BasketActivity" />
         </activity>
+        <provider
+            android:name=".data.VegetableProvider"
+            android:authorities="com.ver2point0.android.roygvegetables"
+            android:exported="false"/>
     </application>
+
 </manifest>
