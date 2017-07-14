@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">ROYG Vegetables</string>
 
+    <string name="empty_view_title_text">Your basket is empty…</string>
+    <string name="empty_view_subtitle_text">Get started by adding a vegetable</string>
+
 </resources>
