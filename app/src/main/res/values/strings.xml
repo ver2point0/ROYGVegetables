@@ -5,11 +5,17 @@
     <string name="empty_view_title_text">Your basket is empty…</string>
     <string name="empty_view_subtitle_text">Get started by adding a vegetable</string>
 
-
     <!-- actions -->
     <string name="action_insert_dummy_data">Insert Dummy Data</string>
     <string name="action_delete_all_entries">Delete All Vegetables</string>
     <string name="action_save">Save</string>
     <string name="action_delete">Delete</string>
+
+    <string name="vegetable_image_view_placeholder">vegetable_image_view_placeholder</string>
+
+    <string name="vegetable_name">name</string>
+    <string name="vegetable_price">price</string>
+    <string name="vegetable_quantity">quantity</string>
+    <string name="sale_image_view_placeholer">sale image view placeholer</string>
 
 </resources>
