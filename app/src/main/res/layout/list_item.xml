@@ -7,7 +7,7 @@
     android:orientation="horizontal">
 
     <ImageView
-        android:id="@+id/list_item_image_view"
+        android:id="@+id/list_item_vegetable_image_view"
         android:layout_width="@dimen/list_item_height"
         android:layout_height="@dimen/list_item_height"
         android:contentDescription="@string/vegetable_image_view_placeholder"
@@ -22,11 +22,11 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:orientation="vertical"
-        android:layout_toRightOf="@+id/list_item_image_view"
-        android:layout_toEndOf="@+id/list_item_image_view"
-        android:paddingStart="16dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp">
+        android:layout_toRightOf="@+id/list_item_vegetable_image_view"
+        android:layout_toEndOf="@+id/list_item_vegetable_image_view"
+        android:paddingStart="@dimen/activity_margin"
+        android:paddingLeft="@dimen/activity_margin"
+        android:paddingRight="@dimen/activity_margin">
 
         <TextView
             android:id="@+id/name_text_view"
@@ -60,6 +60,7 @@
     </LinearLayout>
 
     <ImageView
+        android:id="@+id/list_item_sale_image_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -67,7 +68,7 @@
         android:layout_centerVertical="true"
         android:layout_marginEnd="@dimen/sale_image_margin"
         android:layout_marginRight="@dimen/sale_image_margin"
-        android:contentDescription="@string/sale_image_view_placeholer"
+        android:contentDescription="@string/sale_image_view_placeholder"
         android:src="@drawable/sale"/>
 
 </RelativeLayout>
