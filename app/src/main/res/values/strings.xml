@@ -9,5 +9,7 @@
     <!-- actions -->
     <string name="action_insert_dummy_data">Insert Dummy Data</string>
     <string name="action_delete_all_entries">Delete All Vegetables</string>
+    <string name="action_save">Save</string>
+    <string name="action_delete">Delete</string>
 
 </resources>
