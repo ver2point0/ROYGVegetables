@@ -43,5 +43,12 @@ public class VegetableContract {
         public static final int SUPPLIER_UNKNOWN = 0;
         public static final int SUPPLIER_ROYG = 1;
         public static final int SUPPLIER_ACME = 2;
+
+        public static boolean isValidSupplier(int supplier) {
+            return
+                supplier == SUPPLIER_UNKNOWN ||
+                supplier == SUPPLIER_ROYG ||
+                supplier == SUPPLIER_ACME;
+        }
     }
 }
