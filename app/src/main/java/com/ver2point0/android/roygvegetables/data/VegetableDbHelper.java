@@ -19,9 +19,9 @@ public class VegetableDbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String SQL_CREATE_VEGETABLES_TABLE =
                 "CREATE TABLE" + VegetableEntry.TABLE_NAME + " (" +
-                VegetableEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMNT, " +
+                VegetableEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 VegetableEntry.VEGETABLE_NAME + " TEXT NOT NULL, " +
-                VegetableEntry.VEGETABLE_PHOTO + " BLOG, " +
+                VegetableEntry.VEGETABLE_PHOTO + " BLOB, " +
                 VegetableEntry.VEGETABLE_PRICE + " INTEGER NOT NULL, " +
                 VegetableEntry.VEGETABLE_QUANTITY + " INTEGER NOT NULL, " +
                 VegetableEntry.VEGETABLE_SUPPLIER + " INTEGER NOT NULL DEFAULT 0, " +
@@ -30,5 +30,9 @@ public class VegetableDbHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {}
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // on upgrade drop older tables
+        db.execSQL("DROP TABLE IF EXISTS " + VegetableEntry.TABLE_NAME);
+        onCreate(db);
+    }
 }

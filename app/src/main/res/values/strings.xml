@@ -37,5 +37,8 @@
     <string name="order_label">Order:</string>
     <string name="edit_order_intent_button">Order from supplier</string>
 
+    <!-- user messages -->
+    <string name="no_vegetables_to_sell">No inventory to sell</string>
+
 
 </resources>
