@@ -11,7 +11,7 @@
         android:layout_width="@dimen/list_item_height"
         android:layout_height="@dimen/list_item_height"
         android:contentDescription="@string/vegetable_image_view_placeholder"
-        android:src="@drawable/asparagus"/>
+        android:src="@drawable/corn"/>
     
     <LinearLayout
         android:id="@+id/info_text_container"

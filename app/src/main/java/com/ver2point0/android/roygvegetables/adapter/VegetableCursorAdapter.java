@@ -57,8 +57,8 @@ public class VegetableCursorAdapter extends CursorAdapter {
         Bitmap vegetableBitmap = BitmapFactory.decodeByteArray(vegetablePhoto, 0, vegetablePhoto.length);
         vegetableImage.setImageBitmap(vegetableBitmap);
         nameTextView.setText(vegetableName);
-        priceTextView.setText(vegetablePrice);
-        quantityTextView.setText(vegetableQuantity);
+        priceTextView.setText("$" + Integer.toString(vegetablePrice));
+        quantityTextView.setText(Integer.toString(vegetableQuantity));
 
         saleImage.setOnClickListener(new View.OnClickListener() {
             @Override
