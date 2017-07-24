@@ -41,10 +41,10 @@ public class VegetableCursorAdapter extends CursorAdapter {
 
         // find columns of vegetable attributes needed
         int idColumnIndex = cursor.getColumnIndex(VegetableEntry._ID);
-        int photoColumnIndex = cursor.getColumnIndex(VegetableEntry.VEGETABLE_PHOTO);
-        int nameColumnIndex = cursor.getColumnIndex(VegetableEntry.VEGETABLE_NAME);
-        int priceColumnIndex = cursor.getColumnIndex(VegetableEntry.VEGETABLE_PRICE);
-        int quantityColumnIndex = cursor.getColumnIndex(VegetableEntry.VEGETABLE_QUANTITY);
+        int photoColumnIndex = cursor.getColumnIndex(VegetableEntry.COLUMN_VEGETABLE_PHOTO);
+        int nameColumnIndex = cursor.getColumnIndex(VegetableEntry.COLUMN_VEGETABLE_NAME);
+        int priceColumnIndex = cursor.getColumnIndex(VegetableEntry.COLUMN_VEGETABLE_PRICE);
+        int quantityColumnIndex = cursor.getColumnIndex(VegetableEntry.COLUMN_VEGETABLE_QUANTITY);
 
         // read vegetable attributes from the cursor for current vegetable
         final int vegetableId = cursor.getInt(idColumnIndex);
@@ -75,7 +75,7 @@ public class VegetableCursorAdapter extends CursorAdapter {
         } else {
             int newQuantity = vegQuantity - 1;
             ContentValues values = new ContentValues();
-            values.put(VegetableEntry.VEGETABLE_QUANTITY, newQuantity);
+            values.put(VegetableEntry.COLUMN_VEGETABLE_QUANTITY, newQuantity);
             context.getContentResolver().update(uriVegetable, values, null, null);
         }
     }

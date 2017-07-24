@@ -23,11 +23,11 @@ public class VegetableDbHelper extends SQLiteOpenHelper {
         String SQL_CREATE_VEGETABLES_TABLE =
                 "CREATE TABLE " + VegetableEntry.TABLE_NAME + "( " +
                 VegetableEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                VegetableEntry.VEGETABLE_NAME + " TEXT NOT NULL, " +
-                VegetableEntry.VEGETABLE_PHOTO + " BLOB, " +
-                VegetableEntry.VEGETABLE_PRICE + " INTEGER NOT NULL, " +
-                VegetableEntry.VEGETABLE_QUANTITY + " INTEGER NOT NULL, " +
-                VegetableEntry.VEGETABLE_SUPPLIER + " INTEGER NOT NULL DEFAULT 0 );";
+                VegetableEntry.COLUMN_VEGETABLE_NAME + " TEXT NOT NULL, " +
+                VegetableEntry.COLUMN_VEGETABLE_PHOTO + " BLOB, " +
+                VegetableEntry.COLUMN_VEGETABLE_PRICE + " INTEGER NOT NULL, " +
+                VegetableEntry.COLUMN_VEGETABLE_QUANTITY + " INTEGER NOT NULL, " +
+                VegetableEntry.COLUMN_VEGETABLE_SUPPLIER + " INTEGER NOT NULL DEFAULT 0 );";
 
     Log.i(LOG_TAG, SQL_CREATE_VEGETABLES_TABLE);
         db.execSQL(SQL_CREATE_VEGETABLES_TABLE);

@@ -102,22 +102,22 @@ public class VegetableProvider extends ContentProvider {
     }
 
     private Uri insertVegetable(Uri uri, ContentValues values) {
-        String name = values.getAsString(VegetableEntry.VEGETABLE_NAME);
+        String name = values.getAsString(VegetableEntry.COLUMN_VEGETABLE_NAME);
         if (name == null || name.length() == 0) {
             throw new IllegalArgumentException("Vegetable requires a name");
         }
 
-        Integer price = values.getAsInteger(VegetableEntry.VEGETABLE_PRICE);
+        Integer price = values.getAsInteger(VegetableEntry.COLUMN_VEGETABLE_PRICE);
         if (price != null && price < 0) {
             throw new IllegalArgumentException("Vegetable price must be greater than 0");
         }
 
-        Integer quantity = values.getAsInteger(VegetableEntry.VEGETABLE_QUANTITY);
+        Integer quantity = values.getAsInteger(VegetableEntry.COLUMN_VEGETABLE_QUANTITY);
         if (quantity != null && quantity < 0) {
             throw new IllegalArgumentException("Vegetable quantity must be greater than 0");
         }
 
-        Integer supplier = values.getAsInteger(VegetableEntry.VEGETABLE_SUPPLIER);
+        Integer supplier = values.getAsInteger(VegetableEntry.COLUMN_VEGETABLE_SUPPLIER);
         if (supplier == null || !VegetableEntry.isValidSupplier(supplier)) {
             throw new IllegalArgumentException("Vegetable requires valid supplier");
         }
@@ -181,29 +181,29 @@ public class VegetableProvider extends ContentProvider {
             return 0;
         }
 
-        if (values.containsKey(VegetableEntry.VEGETABLE_NAME)) {
-            String name = values.getAsString(VegetableEntry.VEGETABLE_NAME);
+        if (values.containsKey(VegetableEntry.COLUMN_VEGETABLE_NAME)) {
+            String name = values.getAsString(VegetableEntry.COLUMN_VEGETABLE_NAME);
             if (name == null || name.length() == 0) {
                 throw new IllegalArgumentException("Vegetable requires a name");
             }
         }
 
-        if (values.containsKey(VegetableEntry.VEGETABLE_PRICE)) {
-            Integer price = values.getAsInteger(VegetableEntry.VEGETABLE_PRICE);
+        if (values.containsKey(VegetableEntry.COLUMN_VEGETABLE_PRICE)) {
+            Integer price = values.getAsInteger(VegetableEntry.COLUMN_VEGETABLE_PRICE);
             if (price != null && price < 0) {
                 throw new IllegalArgumentException("Vegetable price must be greater than 0");
             }
         }
 
-        if (values.containsKey(VegetableEntry.VEGETABLE_QUANTITY)) {
-            Integer quantity = values.getAsInteger(VegetableEntry.VEGETABLE_QUANTITY);
+        if (values.containsKey(VegetableEntry.COLUMN_VEGETABLE_QUANTITY)) {
+            Integer quantity = values.getAsInteger(VegetableEntry.COLUMN_VEGETABLE_QUANTITY);
             if (quantity != null && quantity < 0) {
                 throw new IllegalArgumentException("Vegetable quantity must be greater than 0");
             }
         }
 
-        if (values.containsKey(VegetableEntry.VEGETABLE_SUPPLIER)) {
-            Integer supplier = values.getAsInteger(VegetableEntry.VEGETABLE_SUPPLIER);
+        if (values.containsKey(VegetableEntry.COLUMN_VEGETABLE_SUPPLIER)) {
+            Integer supplier = values.getAsInteger(VegetableEntry.COLUMN_VEGETABLE_SUPPLIER);
             if (supplier == null || !VegetableEntry.isValidSupplier(supplier)) {
                 throw new IllegalArgumentException("Vegetable requires valid supplier");
             }

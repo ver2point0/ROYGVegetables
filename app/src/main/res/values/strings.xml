@@ -36,12 +36,25 @@
     <string name="order_label">Order:</string>
     <string name="edit_order_intent_button">Order from supplier</string>
 
-    <string name="editor_activity_title_new_vegetable">Add a Veggie</string>
+    <string name="editor_activity_title_new_vegetable">Add Vegetable</string>
     <string name="editor_activity_title_edit_vegetable">Edit Vegetable</string>
+    <string name="editor_delete_veg_failed">Vegetable deleted</string>
+    <string name="editor_delete_veg_successful">Error with deleting vegetable</string>
 
     <!-- user messages -->
     <string name="no_vegetables_to_sell">No inventory to sell</string>
 
+    <!-- dialog messages-->
+    <string name="delete_dialog_msg">Delete this vegetable?</string>
+    <string name="unsaved_changes_dialog_msg">Discard your changes and quit editing?</string>
+
+    <!-- dialog buttons -->
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="discard">Discard</string>
+    <string name="keep_editing">Keep Editing</string>
+
+    <!-- email strings-->
     <string name="email_subject">Order request for vegetables</string>
     <string name="email_message">We would like to order the following vegetable:</string>
 
