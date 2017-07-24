@@ -108,11 +108,11 @@ public class BasketActivity extends AppCompatActivity
             int supplier) {
 
         ContentValues values = new ContentValues();
-        values.put(VegetableEntry.VEGETABLE_NAME, name);
-        values.put(VegetableEntry.VEGETABLE_PHOTO, photo);
-        values.put(VegetableEntry.VEGETABLE_PRICE, price);
-        values.put(VegetableEntry.VEGETABLE_QUANTITY, quantity);
-        values.put(VegetableEntry.VEGETABLE_SUPPLIER, supplier);
+        values.put(VegetableEntry.COLUMN_VEGETABLE_NAME, name);
+        values.put(VegetableEntry.COLUMN_VEGETABLE_PHOTO, photo);
+        values.put(VegetableEntry.COLUMN_VEGETABLE_PRICE, price);
+        values.put(VegetableEntry.COLUMN_VEGETABLE_QUANTITY, quantity);
+        values.put(VegetableEntry.COLUMN_VEGETABLE_SUPPLIER, supplier);
         getContentResolver().insert(VegetableEntry.CONTENT_URI, values);
     }
 
@@ -144,10 +144,10 @@ public class BasketActivity extends AppCompatActivity
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         String[] projection = {
                 VegetableEntry._ID,
-                VegetableEntry.VEGETABLE_NAME,
-                VegetableEntry.VEGETABLE_PHOTO,
-                VegetableEntry.VEGETABLE_PRICE,
-                VegetableEntry.VEGETABLE_QUANTITY
+                VegetableEntry.COLUMN_VEGETABLE_NAME,
+                VegetableEntry.COLUMN_VEGETABLE_PHOTO,
+                VegetableEntry.COLUMN_VEGETABLE_PRICE,
+                VegetableEntry.COLUMN_VEGETABLE_QUANTITY
         };
 
         return new CursorLoader(

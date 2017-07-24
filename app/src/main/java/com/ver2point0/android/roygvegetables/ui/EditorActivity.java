@@ -3,12 +3,14 @@ package com.ver2point0.android.roygvegetables.ui;
 
 import android.app.Activity;
 import android.app.LoaderManager;
+import android.content.ContentValues;
 import android.content.CursorLoader;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -31,12 +33,17 @@ import android.widget.Toast;
 import com.ver2point0.android.roygvegetables.R;
 import com.ver2point0.android.roygvegetables.data.VegetableContract.VegetableEntry;
 
+import java.io.ByteArrayOutputStream;
+
 public class EditorActivity extends AppCompatActivity
         implements LoaderManager.LoaderCallbacks<Cursor> {
 
     private static final int EXISTING_VEGETABLE_LOADER = 0;
     private static final int IMAGE_REQUEST_CODE = 1;
     private Uri mCurrentUri;
+
+    private Bitmap mBitmap;
+    private boolean mHasImage;
 
     // image view
     private ImageView mImageView;
@@ -45,10 +52,6 @@ public class EditorActivity extends AppCompatActivity
     private EditText mNameEditText;
     private EditText mPriceEditText;
     private EditText mQuantityEditText;
-
-    // buttons
-    private Button mImageButton;
-    private Button mOrderButton;
 
     // spinner
     private Spinner mSupplierSpinner;
@@ -72,23 +75,25 @@ public class EditorActivity extends AppCompatActivity
         Intent intent = getIntent();
         mCurrentUri = intent.getData();
 
-        mOrderButton = (Button) findViewById(R.id.editor_order_button);
+        Button orderButton = (Button) findViewById(R.id.editor_order_button);
 
         if (mCurrentUri == null) {
             setTitle(getString(R.string.editor_activity_title_new_vegetable));
             invalidateOptionsMenu();
-            mOrderButton.setEnabled(false);
+            orderButton.setEnabled(false);
         } else {
             setTitle(getString(R.string.editor_activity_title_edit_vegetable));
             getLoaderManager().initLoader(EXISTING_VEGETABLE_LOADER, null, this);
         }
 
         mImageView = (ImageView) findViewById(R.id.edit_vegetable_image);
-        mImageButton = (Button) findViewById(R.id.editor_add_image_button);
+        Button imageButton = (Button) findViewById(R.id.editor_add_image_button);
         mNameEditText = (EditText) findViewById(R.id.edit_vegetable_name);
         mPriceEditText = (EditText) findViewById(R.id.edit_vegetable_price);
         mQuantityEditText = (EditText) findViewById(R.id.edit_vegetable_quantity);
         mSupplierSpinner = (Spinner) findViewById(R.id.edit_vegetable_supplier);
+        mHasImage = false;
+        mBitmap = null;
 
         mImageView.setOnTouchListener(mTouchListener);
         mNameEditText.setOnTouchListener(mTouchListener);
@@ -96,7 +101,7 @@ public class EditorActivity extends AppCompatActivity
         mQuantityEditText.setOnTouchListener(mTouchListener);
         mSupplierSpinner.setOnTouchListener(mTouchListener);
 
-        mImageButton.setOnClickListener(new View.OnClickListener() {
+        imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent pictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -106,7 +111,7 @@ public class EditorActivity extends AppCompatActivity
             }
         });
 
-        mOrderButton.setOnClickListener(new View.OnClickListener() {
+        orderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String nameEmail = mNameEditText.getText().toString().trim();
@@ -127,13 +132,69 @@ public class EditorActivity extends AppCompatActivity
         setupSpinner();
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == IMAGE_REQUEST_CODE && requestCode == Activity.RESULT_OK) {
-            Bitmap image = (Bitmap) data.getExtras().get("data");
-            mImageView.setImageBitmap(image);
+    private void saveVegetable() {
+        String nameString = mNameEditText.getText().toString().trim();
+        String priceString = mPriceEditText.getText().toString().trim();
+        String quantityString = mQuantityEditText.getText().toString().trim();
+
+        if (TextUtils.isEmpty(nameString)) {
+            Toast.makeText(this, getString(R.string.name_required),
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(priceString)) {
+            Toast.makeText(this, getString(R.string.price_required),
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (TextUtils.isEmpty(quantityString)) {
+            Toast.makeText(this, getString(R.string.quantity_required),
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        ContentValues editorValues = new ContentValues();
+        if (mHasImage) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            mBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+            byte[] imageByte = byteArrayOutputStream.toByteArray();
+            editorValues.put(VegetableEntry.COLUMN_VEGETABLE_PHOTO, imageByte);
+        } else {
+            Toast.makeText(this, getString(R.string.photo_required),
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        editorValues.put(VegetableEntry.COLUMN_VEGETABLE_NAME, nameString);
+        editorValues.put(VegetableEntry.COLUMN_VEGETABLE_PRICE, Integer.parseInt(priceString));
+        editorValues.put(VegetableEntry.COLUMN_VEGETABLE_QUANTITY, Integer.parseInt(quantityString));
+        editorValues.put(VegetableEntry.COLUMN_VEGETABLE_SUPPLIER, mSupplier);
+
+
+        if (mCurrentUri == null) {
+            Uri newUri = getContentResolver().insert(VegetableEntry.CONTENT_URI, editorValues);
+
+            if (newUri == null) {
+                Toast.makeText(this, getString(R.string.editor_insert_veg_failed),
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, getString(R.string.editor_insert_veg_successful),
+                        Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            int rowsAffected = getContentResolver().update(mCurrentUri, editorValues, null, null);
+            if (rowsAffected == 0) {
+                Toast.makeText(this, getString(R.string.editor_update_veg_failed),
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, getString(R.string.editor_update_veg_successful),
+                        Toast.LENGTH_SHORT).show();
+            }
         }
     }
+
 
     // setup the dropdown spinner that allows the user to select a supplier
     private void setupSpinner() {
@@ -163,8 +224,6 @@ public class EditorActivity extends AppCompatActivity
             }
         });
     }
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -251,8 +310,45 @@ public class EditorActivity extends AppCompatActivity
     }
 
     @Override
-    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+    public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
+        if (cursor == null || cursor.getCount() < 1) {
+            return;
+        }
 
+        if (cursor.moveToFirst()) {
+            // find the columns of the veggie attributes we want
+            int nameColumnIndex = cursor.getColumnIndex(VegetableEntry.COLUMN_VEGETABLE_NAME);
+            int photoColumnIndex = cursor.getColumnIndex(VegetableEntry.COLUMN_VEGETABLE_PHOTO);
+            int priceColumnIndex = cursor.getColumnIndex(VegetableEntry.COLUMN_VEGETABLE_PRICE);
+            int quantityColumnIndex = cursor.getColumnIndex(VegetableEntry.COLUMN_VEGETABLE_QUANTITY);
+            int supplierColumnIndex = cursor.getColumnIndex(VegetableEntry.COLUMN_VEGETABLE_SUPPLIER);
+
+            // extract the values from the cursor for the given column indices
+            String name = cursor.getString(nameColumnIndex);
+            byte[] image = cursor.getBlob(photoColumnIndex);
+            if (image != null) {
+                mHasImage = true;
+                mBitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
+            }
+            int price = cursor.getInt(priceColumnIndex);
+            int quantity = cursor.getInt(quantityColumnIndex);
+            int supplier = cursor.getInt(supplierColumnIndex);
+
+            // update views
+            mNameEditText.setText(name);
+            mImageView.setImageBitmap(mBitmap);
+            mPriceEditText.setText(Integer.toString(price));
+            mQuantityEditText.setText(Integer.toString(quantity));
+            switch (supplier) {
+                case VegetableEntry.SUPPLIER_ROYG:
+                    mSupplierSpinner.setSelection(1);
+                    break;
+                default:
+                    mSupplierSpinner.setSelection(0);
+                    break;
+            }
+
+        }
     }
 
     @Override
@@ -318,6 +414,16 @@ public class EditorActivity extends AppCompatActivity
             }
         }
         finish();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == IMAGE_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            Bundle extras = data.getExtras();
+            mBitmap = (Bitmap) extras.get("data");
+            mHasImage = true;
+            mImageView.setImageBitmap(mBitmap);
+        }
     }
 
 } // end EditorActivity.java

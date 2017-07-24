@@ -38,11 +38,19 @@
 
     <string name="editor_activity_title_new_vegetable">Add Vegetable</string>
     <string name="editor_activity_title_edit_vegetable">Edit Vegetable</string>
-    <string name="editor_delete_veg_failed">Vegetable deleted</string>
-    <string name="editor_delete_veg_successful">Error with deleting vegetable</string>
+    <string name="editor_delete_veg_failed">Error with deleting vegetable</string>
+    <string name="editor_delete_veg_successful">Vegetable deleted</string>
+    <string name="editor_insert_veg_successful">Vegetable saved</string>
+    <string name="editor_insert_veg_failed">Error with saving vegetable</string>
+    <string name="editor_update_veg_successful">Vegetable updated</string>
+    <string name="editor_update_veg_failed">Error with updating vegetable</string>
 
     <!-- user messages -->
     <string name="no_vegetables_to_sell">No inventory to sell</string>
+    <string name="name_required">Name required</string>
+    <string name="price_required">Price required</string>
+    <string name="quantity_required">Quantity required</string>
+    <string name="photo_required">Photo required</string>
 
     <!-- dialog messages-->
     <string name="delete_dialog_msg">Delete this vegetable?</string>
