@@ -4,6 +4,5 @@
     <string-array name="array_supplier_options">
         <item>@string/supplier_unknown</item>
         <item>@string/supplier_royg</item>
-        <item>@string/supplier_acme</item>
     </string-array>
 </resources>

@@ -80,12 +80,12 @@ public class BasketActivity extends AppCompatActivity
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private void insertVegetable() {
-        insertIntoDatabase("Broccoli", convertToByte(getDrawable(R.drawable.broccoli)), 2, 20, VegetableEntry.SUPPLIER_ACME);
+        insertIntoDatabase("Broccoli", convertToByte(getDrawable(R.drawable.broccoli)), 2, 20, VegetableEntry.SUPPLIER_UNKNOWN);
         insertIntoDatabase("Carrot", convertToByte(getDrawable(R.drawable.carrot)), 4, 40, VegetableEntry.SUPPLIER_ROYG);
         insertIntoDatabase("Corn", convertToByte(getDrawable(R.drawable.corn)), 6, 60, VegetableEntry.SUPPLIER_UNKNOWN);
-        insertIntoDatabase("Lettuce", convertToByte(getDrawable(R.drawable.lettuce)), 8, 80, VegetableEntry.SUPPLIER_ACME);
-        insertIntoDatabase("Onion", convertToByte(getDrawable(R.drawable.onion)), 12, 120, VegetableEntry.SUPPLIER_ROYG);
-        insertIntoDatabase("Potato", convertToByte(getDrawable(R.drawable.potato)), 14, 140, VegetableEntry.SUPPLIER_UNKNOWN);
+        insertIntoDatabase("Lettuce", convertToByte(getDrawable(R.drawable.lettuce)), 8, 80, VegetableEntry.SUPPLIER_ROYG);
+        insertIntoDatabase("Onion", convertToByte(getDrawable(R.drawable.onion)), 12, 120, VegetableEntry.SUPPLIER_UNKNOWN);
+        insertIntoDatabase("Potato", convertToByte(getDrawable(R.drawable.potato)), 14, 140, VegetableEntry.SUPPLIER_ROYG);
 
     }
 

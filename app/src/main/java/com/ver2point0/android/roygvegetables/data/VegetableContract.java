@@ -37,18 +37,13 @@ public class VegetableContract {
         public static final String VEGETABLE_PRICE = "price";
         public static final String VEGETABLE_QUANTITY = "quantity";
         public static final String VEGETABLE_SUPPLIER = "supplier";
-        public static final String VEGETABLE_SUPPLIER_EMAIL = "supplierEmail";
 
         // possible vegetable suppliers
         public static final int SUPPLIER_UNKNOWN = 0;
         public static final int SUPPLIER_ROYG = 1;
-        public static final int SUPPLIER_ACME = 2;
 
         public static boolean isValidSupplier(int supplier) {
-            return
-                supplier == SUPPLIER_UNKNOWN ||
-                supplier == SUPPLIER_ROYG ||
-                supplier == SUPPLIER_ACME;
+            return supplier == SUPPLIER_UNKNOWN || supplier == SUPPLIER_ROYG;
         }
     }
 }

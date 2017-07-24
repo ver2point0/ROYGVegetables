@@ -27,8 +27,7 @@ public class VegetableDbHelper extends SQLiteOpenHelper {
                 VegetableEntry.VEGETABLE_PHOTO + " BLOB, " +
                 VegetableEntry.VEGETABLE_PRICE + " INTEGER NOT NULL, " +
                 VegetableEntry.VEGETABLE_QUANTITY + " INTEGER NOT NULL, " +
-                VegetableEntry.VEGETABLE_SUPPLIER + " INTEGER NOT NULL DEFAULT 0, " +
-                VegetableEntry.VEGETABLE_SUPPLIER_EMAIL + " TEXT );";
+                VegetableEntry.VEGETABLE_SUPPLIER + " INTEGER NOT NULL DEFAULT 0 );";
 
     Log.i(LOG_TAG, SQL_CREATE_VEGETABLES_TABLE);
         db.execSQL(SQL_CREATE_VEGETABLES_TABLE);

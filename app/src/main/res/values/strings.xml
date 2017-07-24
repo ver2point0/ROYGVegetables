@@ -22,7 +22,6 @@
     <!-- supplier array options -->
     <string name="supplier_unknown">Unknown</string>
     <string name="supplier_royg">ROY G</string>
-    <string name="supplier_acme">Acme Produce</string>
 
     <!-- editor -->
     <string name="overview_label">Overview:</string>
@@ -37,8 +36,14 @@
     <string name="order_label">Order:</string>
     <string name="edit_order_intent_button">Order from supplier</string>
 
+    <string name="editor_activity_title_new_vegetable">Add a Veggie</string>
+    <string name="editor_activity_title_edit_vegetable">Edit Vegetable</string>
+
     <!-- user messages -->
     <string name="no_vegetables_to_sell">No inventory to sell</string>
+
+    <string name="email_subject">Order request for vegetables</string>
+    <string name="email_message">We would like to order the following vegetable:</string>
 
 
 </resources>
