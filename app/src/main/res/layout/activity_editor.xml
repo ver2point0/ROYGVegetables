@@ -107,14 +107,28 @@
                 android:paddingStart="4dp"
                 android:paddingEnd="4dp"
                 android:paddingTop="@dimen/l_l_padding_top"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
-                <!-- name field-->
+                <!-- minus button -->
+                <Button
+                    android:id="@+id/minus_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="@string/editor_minus_button"/>
+
+                <!-- quantity field-->
                 <EditText
                     android:id="@+id/edit_vegetable_quantity"
                     android:hint="@string/edit_hint_vegetable_quantity"
                     android:inputType="number"
                     style="@style/EditorFieldStyle"/>
+
+                <!-- plus button -->
+                <Button
+                    android:id="@+id/plus_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="@string/edit_plus_button"/>
             </LinearLayout>
         </LinearLayout>
 

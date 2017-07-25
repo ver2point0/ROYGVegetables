@@ -91,6 +91,8 @@ public class EditorActivity extends AppCompatActivity
         mNameEditText = (EditText) findViewById(R.id.edit_vegetable_name);
         mPriceEditText = (EditText) findViewById(R.id.edit_vegetable_price);
         mQuantityEditText = (EditText) findViewById(R.id.edit_vegetable_quantity);
+        Button minusButton = (Button) findViewById(R.id.minus_button);
+        Button plusButton = (Button) findViewById(R.id.plus_button);
         mSupplierSpinner = (Spinner) findViewById(R.id.edit_vegetable_supplier);
         mHasImage = false;
         mBitmap = null;
@@ -108,6 +110,29 @@ public class EditorActivity extends AppCompatActivity
                 if (pictureIntent.resolveActivity(getPackageManager()) != null) {
                     startActivityForResult(pictureIntent, IMAGE_REQUEST_CODE);
                 }
+            }
+        });
+
+        minusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int quantity = Integer.parseInt(mQuantityEditText.getText().toString().trim());
+                if (quantity == 0) {
+                    Toast.makeText(getApplicationContext(), getString(R.string.no_negative_quantity),
+                            Toast.LENGTH_SHORT).show();
+                } else {
+                    quantity--;
+                    mQuantityEditText.setText(Integer.toString(quantity));
+                }
+            }
+        });
+
+        plusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int quantity = Integer.parseInt(mQuantityEditText.getText().toString().trim());
+                quantity++;
+                mQuantityEditText.setText(Integer.toString(quantity));
             }
         });
 
@@ -193,6 +218,7 @@ public class EditorActivity extends AppCompatActivity
                         Toast.LENGTH_SHORT).show();
             }
         }
+        finish();
     }
 
 
@@ -242,8 +268,6 @@ public class EditorActivity extends AppCompatActivity
         switch (item.getItemId()) {
             case R.id.action_save:
                 saveVegetable();
-                // exit activity
-                finish();
                 return true;
             case R.id.action_delete:
                 showDeleteConfirmationDialog();

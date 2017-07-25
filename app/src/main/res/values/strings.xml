@@ -31,7 +31,9 @@
     <string name="edit_hint_vegetable_price">Add vegetable price</string>
     <string name="edit_vegetable_price_units">$</string>
     <string name="quantity_label">Quantity:</string>
-    <string name="edit_hint_vegetable_quantity">Add vegetable quantity</string>
+    <string name="editor_minus_button">-</string>
+    <string name="edit_plus_button">+</string>
+    <string name="edit_hint_vegetable_quantity">0</string>
     <string name="supplier_label">Supplier:</string>
     <string name="order_label">Order:</string>
     <string name="edit_order_intent_button">Order from supplier</string>
@@ -51,6 +53,7 @@
     <string name="price_required">Price required</string>
     <string name="quantity_required">Quantity required</string>
     <string name="photo_required">Photo required</string>
+    <string name="no_negative_quantity">Quantity cannot be negative</string>
 
     <!-- dialog messages-->
     <string name="delete_dialog_msg">Delete this vegetable?</string>
@@ -65,6 +68,5 @@
     <!-- email strings-->
     <string name="email_subject">Order request for vegetables</string>
     <string name="email_message">We would like to order the following vegetable:</string>
-
 
 </resources>
