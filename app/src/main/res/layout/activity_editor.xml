@@ -119,7 +119,7 @@
                 <!-- quantity field-->
                 <EditText
                     android:id="@+id/edit_vegetable_quantity"
-                    android:hint="@string/edit_hint_vegetable_quantity"
+                    android:text="@string/edit_initial_vegetable_quantity"
                     android:inputType="number"
                     style="@style/EditorFieldStyle"/>
 

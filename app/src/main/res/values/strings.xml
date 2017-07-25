@@ -33,7 +33,7 @@
     <string name="quantity_label">Quantity:</string>
     <string name="editor_minus_button">-</string>
     <string name="edit_plus_button">+</string>
-    <string name="edit_hint_vegetable_quantity">0</string>
+    <string name="edit_initial_vegetable_quantity">1</string>
     <string name="supplier_label">Supplier:</string>
     <string name="order_label">Order:</string>
     <string name="edit_order_intent_button">Order from supplier</string>
